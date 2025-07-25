@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.LTJ.lukasgamecollection"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="12"
+        android:targetSdkVersion="33" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        <activity
+            android:name="com.LTJ.lukasgamecollection.Mainmenu"
+            android:exported="true"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.LTJ.lukasgamecollection.SpaceGame"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.LTJ.lukasgamecollection.ScoreBoard"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.LTJ.lukasgamecollection.Tutorial"
+            android:label="@string/title_activity_tutorial"
+            android:parentActivityName="com.LTJ.lukasgamecollection.Mainmenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.LTJ.lukasgamecollection.Mainmenu" />
+        </activity>
+        <activity
+            android:name="com.LTJ.lukasgamecollection.Tutorial2"
+            android:label="@string/title_activity_tutorial2" >
+        </activity>
+    </application>
+
+</manifest>

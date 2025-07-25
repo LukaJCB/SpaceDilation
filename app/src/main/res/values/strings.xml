@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Space Dilation</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_tutorial">Tutorial</string>
+    <string name="shot_upgrade">This Upgrade will upgrade the Frequency with which you shoot.
+        Meaning that you will shoot faster the more of these you collect</string>
+    <string name="shield_upgrade">This Upgrade will provide your Ship with a shield against most enemy attacks.
+        Be careful though, as it only lasts for a limited time.</string>
+    <string name="rocket_upgrade">This Upgrade will provide you a rocket to fire against enemies.
+	    The rocket will deliver 10 damage points making it very useful against more powerful enemies.</string>
+    <string name="bomb_upgrade">This Upgrade will provide you with a powerful bomb,
+	     that will destroy almost anything on release</string>
+    <string name="life_upgrade">This Upgrade will provide you with an extra life.</string>
+    <string name="normal_enemy">These are normal fighters. They are not much of a threat,
+	     but can provide dangerous in larger amounds</string>
+    <string name="mid_enemy">These are mid-sized enemies, that are much faster and agile than normal fighters.
+	    Always have a shield equipped.</string>
+    <string name="boss_enemy">These are the motherships, proceed with extreme caution.
+	    Capable of shooting and utilising extensive armor plating.</string>
+    <string name="title_activity_tutorial2">Tutorial2</string>
+</resources>
