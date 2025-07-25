@@ -42,21 +42,9 @@ public class UpgradeObject extends SimpleGameObject {
 	}
 
 
-	
-	/**
-	 * checks if the GameObject collides with another object.
-	 * 
-	 * @param obj
-	 *            the GameObject the current Object collides with.
-	 * @return true if the Object collides with the other Object.
-	 */
-	public boolean collidesWith(SimpleGameObject obj) {
-		if (!destroyed && obj.y <= this.y + this.height && obj.y + obj.height >= this.y
-				&& obj.x + obj.width >= this.x && obj.x <= this.x + this.width){
 
-			return true;
-		}
-		return false;
+	public boolean collidesWith(SimpleGameObject obj) {
+		return !destroyed && super.collidesWith(obj);
 	}
 	
 	

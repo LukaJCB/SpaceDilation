@@ -2,6 +2,8 @@ package com.LTJ.lukasgamecollection;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 public class ShieldUpgrade extends UpgradeObject {
 	/**
 	 * the Sprite of the Object
@@ -18,6 +20,8 @@ public class ShieldUpgrade extends UpgradeObject {
 	public void setDimensions() {
 		height = sprite.getHeight();
 		width = sprite.getWidth();
+
+		collisionBoxes = List.of(new Box(0f, 1f, 0f, 1f));
 
 	}
 }

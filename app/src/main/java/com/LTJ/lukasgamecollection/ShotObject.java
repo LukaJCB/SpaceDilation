@@ -2,6 +2,8 @@ package com.LTJ.lukasgamecollection;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 public class ShotObject extends SimpleGameObject {
 	
 	/**
@@ -16,6 +18,7 @@ public class ShotObject extends SimpleGameObject {
 		height = sprite.getHeight();
 		width = sprite.getWidth();
 
+		collisionBoxes = List.of(new Box(0f, 1f, 0f, 1f));
 	}
 	
 }

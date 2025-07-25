@@ -2,6 +2,8 @@ package com.LTJ.lukasgamecollection;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 public class LifeUpgrade extends UpgradeObject {
 	
 	private Bitmap sprite;
@@ -21,6 +23,7 @@ public class LifeUpgrade extends UpgradeObject {
 	public void setDimensions(){
 		height = sprite.getHeight();
 		width = sprite.getWidth();
+		collisionBoxes = List.of(new Box(0f, 1f, 0f, 1f));
 	}
 
 }

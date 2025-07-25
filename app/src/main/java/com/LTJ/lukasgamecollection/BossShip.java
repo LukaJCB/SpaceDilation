@@ -1,5 +1,7 @@
 package com.LTJ.lukasgamecollection;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import android.graphics.Bitmap;
@@ -66,7 +68,8 @@ public class BossShip extends ShipObject {
 	public void setDimensions() {
 		height = bossSprite.getHeight();
 		width = bossSprite.getWidth();
-	
+
+		collisionBoxes = List.of(new Box(0f, 1f, 0f, 1f));
 	}
 	
 	public void setHealth(int i) {

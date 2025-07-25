@@ -57,12 +57,7 @@ public class ShieldObject extends SimpleGameObject {
 	 * @return true if the Object collides with the other Object.
 	 */
 	public boolean collidesWith(SimpleGameObject obj) {
-		if (!destroyed && obj.y <= this.y + this.height && obj.y + obj.height >= this.y
-				&& obj.x + obj.width >= this.x && obj.x <= this.x + this.width){
-
-			return true;
-		}
-		return false;
+		return !destroyed && super.collidesWith(obj);
 	}
 
 	/**

@@ -2,6 +2,8 @@ package com.LTJ.lukasgamecollection;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 public class ShipObject extends SimpleGameObject {
 	
 	
@@ -55,7 +57,8 @@ public class ShipObject extends SimpleGameObject {
 	public void setDimensions() {
 		height = sprite.getHeight();
 		width = sprite.getWidth();
-	
+
+		collisionBoxes = List.of(new Box(0.1f, 0.85f, 0.5f, 1f),new Box(0.35f, 0.65f, 0f, 1f));
 	}
 
 
@@ -67,9 +70,8 @@ public class ShipObject extends SimpleGameObject {
 	 * @return true if the Object collides with the other Object.
 	 */
 	public boolean collidesWith(SimpleGameObject obj) {
-        return !destroyed && obj.y <= this.y + this.height && obj.y + obj.height * 0.6f >= this.y
-                && obj.x + obj.width >= this.x - this.width * 0.2f && obj.x <= this.x + this.width * 0.8f;
-    }
+		return !destroyed && super.collidesWith(obj);
+	}
 	
 	
 

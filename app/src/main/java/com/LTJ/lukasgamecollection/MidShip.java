@@ -2,6 +2,8 @@ package com.LTJ.lukasgamecollection;
 
 import android.graphics.Bitmap;
 
+import java.util.Arrays;
+
 public class MidShip extends SimpleGameObject {
 	/**
 	 * determines if the Object is destroyed
@@ -88,6 +90,7 @@ public class MidShip extends SimpleGameObject {
 		height = sprite.getHeight();
 		width = sprite.getWidth();
 
+		collisionBoxes = Arrays.asList(new Box(0f, 1f, 0f, 0.6f), new Box(0.35f, 0.65f, 0, 1));
 	}
 
 	public boolean isDestroyed() {
@@ -122,14 +125,9 @@ public class MidShip extends SimpleGameObject {
 			superDestroy();
 		}
 	}
-	
-	public boolean collidesWith(SimpleGameObject obj) {
-		if (!destroyed && obj.y <= this.y + this.height && obj.y + obj.height >= this.y
-				&& obj.x + obj.width >= this.x && obj.x <= this.x + this.width){
 
-			return true;
-		}
-		return false;
+	public boolean collidesWith(SimpleGameObject obj) {
+		return !destroyed && super.collidesWith(obj);
 	}
 
 	public static short getSpawnImprobability() {

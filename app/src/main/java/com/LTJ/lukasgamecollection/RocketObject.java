@@ -2,6 +2,8 @@ package com.LTJ.lukasgamecollection;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 public class RocketObject extends SimpleGameObject {
 	/**
 	 * determines if the Object is destroyed
@@ -36,6 +38,7 @@ public class RocketObject extends SimpleGameObject {
 		height = sprite.getHeight();
 		width = sprite.getWidth();
 
+		collisionBoxes = List.of(new Box(0f, 1f, 0f, 1f));
 	}
 	
 	/**
@@ -46,12 +49,7 @@ public class RocketObject extends SimpleGameObject {
 	 * @return true if the Object collides with the other Object.
 	 */
 	public boolean collidesWith(SimpleGameObject obj) {
-		if (!destroyed && obj.y <= this.y + this.height && obj.y + obj.height >= this.y
-				&& obj.x + obj.width >= this.x && obj.x <= this.x + this.width){
-
-			return true;
-		}
-		return false;
+		return !destroyed && super.collidesWith(obj);
 	}
 	
 	public void systemDestroy(){

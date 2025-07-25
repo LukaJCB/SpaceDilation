@@ -2,6 +2,9 @@ package com.LTJ.lukasgamecollection;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class EnemyShip extends SimpleGameObject {
 	
 	
@@ -22,7 +25,7 @@ public class EnemyShip extends SimpleGameObject {
 	public static float moveSpeed;
 	
 	/**
-	 * applies a faktor to the score
+	 * applies a factor to the score
 	 */
 	public static byte scoreMod;
 	
@@ -38,6 +41,7 @@ public class EnemyShip extends SimpleGameObject {
 		height = sprite.getHeight();
 		width = sprite.getWidth();
 
+		collisionBoxes = Arrays.asList(new Box(0f, 1f, 0f, 0.4f), new Box(0.3f, 0.7f, 0, 1));
 	}
 	
 	
@@ -54,13 +58,25 @@ public class EnemyShip extends SimpleGameObject {
 	 * @return true if the Object collides with the other Object.
 	 */
 	public boolean collidesWith(SimpleGameObject obj) {
-		if (!destroyed && obj.y <= this.y + this.height && obj.y + obj.height >= this.y
-				&& obj.x + obj.width >= this.x && obj.x <= this.x + this.width){
+		if (!destroyed) {
+			for (Box box: obj.collisionBoxes) {
+				float objX1 = obj.x + box.x1 * obj.width;
+				float objX2 = obj.x + box.x2 * obj.width;
+				float objY1 = obj.y + box.y1 * obj.height;
+				float objY2 = obj.y + box.y2 * obj.height;
+				for (Box box2 : this.collisionBoxes) {
+					float thisX1 = this.x + box2.x1 * this.width;
+					float thisX2 = this.x + box2.x2 * this.width;
+					float thisY1 = this.y + box2.y1 * this.height;
+					float thisY2 = this.y + box2.y2 * this.height;
 
-			return true;
-		}
-		return false;
-	}
+					if (objY1 <= thisY2 && objY2 >= thisY1 && objX1 <= thisX2 && objX2 >= thisX1)
+						return true;
+				}
+			}
+        }
+        return false;
+    }
 
 	/**
 	 * sets destroyed to true //doesn't actually 'destroy' the object.
@@ -72,35 +88,13 @@ public class EnemyShip extends SimpleGameObject {
 		
 	}
 
-	/**
-	 * calls destroy if the Objects collide on the bottom.
-	 * 
-	 * @param obj
-	 */
-	public void destroyOnCollision(SimpleGameObject obj) {
-		if (collidesWith(obj)) {
-			destroy();
-		}
-
-	}
 	
 	public void systemDestroy(){
 		this.destroyed = true;
 	}
 	
 	
-	
-	/**
-	 * calls destroy if the Objects collide.
-	 * 
-	 * @param obj
-	 */
-	public void systemDestroyOnCollision(SimpleGameObject obj) {
-		if (collidesWith(obj)) {
-			systemDestroy();
-		}
 
-	}
 	
 	
 }
