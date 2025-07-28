@@ -1075,19 +1075,19 @@ public class TutorialSurface extends GameSurface implements SensorEventListener,
 		// display score overlay
 		c.drawText("Score: " + score, 80, 80, hudPaint);
 	}
-	
-	private void displayRocketHud(Canvas c){
+
+	private void displayRocketHud(Canvas c) {
 		// display available Rockets
-				for (byte i = 0; i < ship.getAvailableRockets(); i++) {
-					c.drawBitmap(rocketHUD, 360 + i * 50, 45, null);
-				}
+		for (byte i = 0; i < ship.getAvailableRockets(); i++) {
+			c.drawBitmap(rocketHUD, c.getWidth() - (1 + i) * c.getWidth() / 17f, bombHUD.getHeight() + c.getWidth() / 16f, null);
+		}
 	}
-	
-	private void displayBombHud(Canvas c){
+
+	private void displayBombHud(Canvas c) {
 		// display available Bomb
-				if (ship.hasBomb()) {
-					c.drawBitmap(bombHUD, 80, 120, null);
-				}
+		if (ship.hasBomb()) {
+			c.drawBitmap(bombHUD, c.getWidth() - bombHUD.getWidth() - c.getWidth() / 17f, c.getWidth() / 20f, null);
+		}
 	}
 	
 	private void displayLifeHud(Canvas c){

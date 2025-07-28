@@ -1384,14 +1384,14 @@ public class SpaceSurface extends GameSurface implements SensorEventListener,
 	private void displayRocketHud(Canvas c) {
 		// display available Rockets
 		for (byte i = 0; i < ship.getAvailableRockets(); i++) {
-			c.drawBitmap(rocketHUD, 360 + i * 50, 45, null);
+			c.drawBitmap(rocketHUD, c.getWidth() - (1 + i) * c.getWidth() / 17f, bombHUD.getHeight() + c.getWidth() / 16f, null);
 		}
 	}
 
 	private void displayBombHud(Canvas c) {
 		// display available Bomb
 		if (ship.hasBomb()) {
-			c.drawBitmap(bombHUD, 80, 120, null);
+			c.drawBitmap(bombHUD, c.getWidth() - bombHUD.getWidth() - c.getWidth() / 17f, c.getWidth() / 20f, null);
 		}
 	}
 
