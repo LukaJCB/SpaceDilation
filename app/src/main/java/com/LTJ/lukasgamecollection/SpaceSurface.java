@@ -60,6 +60,8 @@ public class SpaceSurface extends GameSurface implements SensorEventListener,
 	private byte spawnTime, spawnImprobability, shotUpgradeImprobability,
 			shieldUpgradeImprobability, rocketUpgradeImprobability;
 
+	private byte midShipShotUpgradeImprobability, midShipShieldUpgradeImprobability, midShipRocketUpgradeImprobability;
+
 	private float lastY;
 
 	// everything identified with m is part of the Sensor act
@@ -394,6 +396,10 @@ public class SpaceSurface extends GameSurface implements SensorEventListener,
 			shotUpgradeImprobability = 40;
 			shieldUpgradeImprobability = 85;
 			rocketUpgradeImprobability = 55;
+
+			midShipShotUpgradeImprobability = 10;
+			midShipShieldUpgradeImprobability = 15;
+			midShipRocketUpgradeImprobability = 15;
 
 			// Initial speed of enemies
 			EnemyShip.moveSpeed = height / 320;
@@ -1003,15 +1009,15 @@ public class SpaceSurface extends GameSurface implements SensorEventListener,
 						if (midShips.isDestroyed()) {
 
 							// if upgradeImprobability is met
-							if (random.nextInt(shotUpgradeImprobability) == 0) {
+							if (random.nextInt(midShipShotUpgradeImprobability) == 0) {
 								spawnUpgrade(midShips.x, midShips.y,
 										UpgradeObject.SHOT);
 							} else if (random
-									.nextInt(rocketUpgradeImprobability) == 0) {
+									.nextInt(midShipRocketUpgradeImprobability) == 0) {
 								spawnUpgrade(midShips.x, midShips.y,
 										UpgradeObject.ROCKET);
 							} else if (random
-									.nextInt(shieldUpgradeImprobability) == 0) {
+									.nextInt(midShipShieldUpgradeImprobability) == 0) {
 								spawnUpgrade(midShips.x, midShips.y,
 										UpgradeObject.SHIELD);
 							}
@@ -1359,6 +1365,10 @@ public class SpaceSurface extends GameSurface implements SensorEventListener,
 				shotUpgradeImprobability += 2;
 				shieldUpgradeImprobability += 2;
 				rocketUpgradeImprobability += 2;
+
+				midShipShotUpgradeImprobability += 2;
+				midShipShieldUpgradeImprobability += 2;
+				midShipRocketUpgradeImprobability += 2;
 				difficulty[i] = true;
 			}
 		}
