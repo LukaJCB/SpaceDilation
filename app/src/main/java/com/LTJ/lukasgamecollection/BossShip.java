@@ -184,4 +184,10 @@ public class BossShip extends ShipObject {
 	public static void setSuperUpgradeImprobability(byte superUpgradeImprobability) {
 		BossShip.superUpgradeImprobability = superUpgradeImprobability;
 	}
+
+	public void resetShots(float height) {
+		for (BossShotObject shots : shot) {
+			shots.y = height;
+		}
+	}
 }

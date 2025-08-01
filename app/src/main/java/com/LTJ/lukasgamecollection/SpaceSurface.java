@@ -749,6 +749,13 @@ public class SpaceSurface extends GameSurface implements SensorEventListener,
 								+ bossShips.height) {
 					bossShips.hit(10);
 				}
+
+				for (var shot : bossShips.shot) {
+					if (ship.bomb.getyExplosion() <= shot.y + shot.height) {
+						//reset shot
+						shot.y = height;
+					}
+				}
 			}
 		}
 	}
@@ -1114,6 +1121,7 @@ public class SpaceSurface extends GameSurface implements SensorEventListener,
 							- bossShip[i].width;
 					bossShip[i].destroyed = false;
 
+					bossShip[i].resetShots(height);
 				}
 			}
 		}
